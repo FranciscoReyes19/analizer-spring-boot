@@ -1,6 +1,18 @@
 package com.web.analizer.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.web.analizer.model.Expediente;
+import com.web.analizer.repository.ExpedienteRepository;
+
+@Service
 public class Mutation {
+	
+	@Autowired
+    ExpedienteRepository expedienteRepository;
+	
+	   //ADN Algoritm private variables
 	   private String adn;
 	   private int[] indexLeft = {12,6,0,1,2};
 	   private int[] indexRigth = {3,4,5,11,17};
@@ -8,26 +20,27 @@ public class Mutation {
 	   private int FactorLeft = 7;
 	   private int FactorRigth = 5;
 	   private int founded = 0;
-	   private Boolean result = false;
 	   
-	   public Mutation(String adn) {
-	      this.adn = adn;
-	      SetResult(hasMutation());
-	      System.out.println("Times with mutation: "+this.founded);
-	    }
-	    
-	    public String AddPipes(){
-	        String origin = this.adn;
-	        String nuevo = "";
-	        for(int i=0;i < origin.length();i++){
-	            nuevo+= origin.charAt(i);
-	            if(i == 5 || i == 11 || i == 17 || i == 23 || i == 29 || i==35){
-	                nuevo+= '|';
-	            }
-	        }
-	        return nuevo;
-	    }
-
+	   //Service variables
+	   
+	   //Service methods
+	   public int getCountHas() {
+		   return expedienteRepository.findByResult(true).size();
+	   }
+	   public int getCountHasnt() {
+		   return expedienteRepository.findByResult(false).size();
+	   }
+	   public int getCountAll() {
+		   return expedienteRepository.findAll().size();
+	   }
+	   
+	   public Boolean GetResult(String adn) {
+		   this.adn = adn;
+		   System.out.println("Times with mutation: "+this.founded);
+		   return hasMutation();
+	   }
+	   
+	   //ADN algoritm methods	   
 	   public Boolean hasMutation(){
 	       String Mixadn = MixSecuences();
 	       int concurrence = 0;
@@ -113,12 +126,15 @@ public class Mutation {
 	       }
 	       return fila;
 	    }
-	//Getters and Setters
-	public void SetResult(Boolean r) {
-		this.result = r;
-	}
-	public Boolean GetResult() {
-		return this.result;
-	}
-	    
-	}
+	public String AddPipes(){
+	        String origin = this.adn;
+	        String nuevo = "";
+	        for(int i=0;i < origin.length();i++){
+	            nuevo+= origin.charAt(i);
+	            if(i == 5 || i == 11 || i == 17 || i == 23 || i == 29 || i==35){
+	                nuevo+= '|';
+	            }
+	        }
+	        return nuevo;
+     }    
+}

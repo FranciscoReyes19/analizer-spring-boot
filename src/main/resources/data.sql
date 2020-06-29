@@ -1,2 +1,8 @@
 INSERT IGNORE INTO roles(name) VALUES('ROLE_USER');
 INSERT IGNORE INTO roles(name) VALUES('ROLE_ADMIN');
+INSERT IGNORE INTO expedientes(name,adn,result,created_at,updated_at) VALUES('Francisco','GTGCTATAAAGCCTTTGTAGAGGGCCGCAATCACTG',false,'2020-05-11 00:05:00','2020-05-12 00:05:00');
+INSERT IGNORE INTO expedientes(name,adn,result,created_at,updated_at) VALUES('Antonio','GTGCTATAAAGCCTATGTAGAGGGCCGCAATCACTG',false,'2020-05-11 00:06:00','2020-05-12 00:05:00');
+INSERT IGNORE INTO expedientes(name,adn,result,created_at,updated_at) VALUES('Raul','GTGCTTTAAGGCCTTTGTAGAGGGCCGCAATCACTG',false,'2020-05-11 00:07:00','2020-05-12 00:05:00');
+INSERT IGNORE INTO expedientes(name,adn,result,created_at,updated_at) VALUES('Juan','GTGCTTTAAGGCCTTTGTAGAGGGCCGCAATCACTT',true,'2020-05-11 00:08:00','2020-05-12 00:05:00');
+INSERT IGNORE INTO expedientes(name,adn,result,created_at,updated_at) VALUES('Andrea','GTGCTTTAAGGCCTTTGTAGAGGGCCGCAATCACTA',true,'2020-05-11 00:09:00','2020-05-12 00:05:00');
+INSERT IGNORE INTO expedientes(name,adn,result,created_at,updated_at) VALUES('Pedro','ATGCTTTAAGGCCTTTGTAGAGGGCCGCAATCACTT',true,'2020-05-11 00:10:00','2020-05-12 00:05:00');
